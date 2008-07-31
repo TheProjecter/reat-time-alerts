@@ -27,7 +27,7 @@ public class Main {
     static String[] messenger_id;
     static HashMap map = new HashMap();
     
-    static String userName = "demo_rtsp";
+    static String userName = "demo.alerts";
     static String password = "cmpe295";
     
     //static String userName = "";
