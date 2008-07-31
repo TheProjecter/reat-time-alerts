@@ -36,10 +36,11 @@ public class pluginQueries {
         int[] id = null;
         try
         {
+            System.out.println("Checking timestamp now");
             stmt = con.prepareStatement("SELECT keyword_id FROM keyword_timestamp WHERE search_time > publish_time;");
             updatestmt = con.prepareStatement("UPDATE keyword_timestamp SET publish_time = search_time+1 WHERE search_time > publish_time;");
             stmt.executeQuery();
-            updatestmt.executeUpdate();
+            //updatestmt.executeUpdate();
             rs = stmt.getResultSet();
             rs.last();
             id =new int[rs.getRow()];
@@ -47,7 +48,7 @@ public class pluginQueries {
             while (rs.next())
             {
                 id[index] = rs.getInt("keyword_id");
-//                System.out.println("Record found...." + id[index]);
+                System.out.println("Record found...." + id[index]);
                 index++;
             }
             rs.close();

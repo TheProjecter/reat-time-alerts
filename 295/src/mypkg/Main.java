@@ -30,15 +30,15 @@ public class Main {
     static String userName = "demo.alerts";
     static String password = "cmpe295";
     
-    //static String userName = "";
+    //static String userName = "kpglenses";
     //static String password = "";
-    
+
     
     public static void main(String args[]) {
         // TODO code application logic here
         int delay = 1000;
         int period = 10000;
-       
+        //System.out.println("in main");
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask(){ 
         public void run()
@@ -46,9 +46,10 @@ public class Main {
             int[] tid;
             int c;
             int i;
-            
+            //System.out.println("timer started");
             pluginQueries query = new pluginQueries();
             tid = query.checkTimeStamp();
+            System.out.println(tid.length);
             if (tid.length > 0){
             for (c = 0; c < tid.length; c++)
             {
