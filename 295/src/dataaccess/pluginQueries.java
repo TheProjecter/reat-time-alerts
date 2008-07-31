@@ -21,6 +21,7 @@ public class pluginQueries {
     Connection con = null;
     ResultSet rs = null;
     PreparedStatement stmt = null;
+    PreparedStatement updatestmt = null;
     
     public pluginQueries()
     {
@@ -36,7 +37,9 @@ public class pluginQueries {
         try
         {
             stmt = con.prepareStatement("SELECT keyword_id FROM keyword_timestamp WHERE search_time > publish_time;");
+            updatestmt = con.prepareStatement("UPDATE keyword_timestamp SET publish_time = search_time+1 WHERE search_time > publish_time;");
             stmt.executeQuery();
+            updatestmt.executeUpdate();
             rs = stmt.getResultSet();
             rs.last();
             id =new int[rs.getRow()];
@@ -121,5 +124,3 @@ public class pluginQueries {
         }
     }
   }
-
-
