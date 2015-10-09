@@ -1,0 +1,1 @@
+This project consists of developing a module for an instant user notification application where the user signs up for a service that sends him\her instant notifications on any updates regarding the topic that the user chooses.
